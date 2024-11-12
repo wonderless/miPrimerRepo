@@ -1,0 +1,14 @@
+extends layout 
+block content 
+  div.form-body 
+    main.container-form 
+      h1.form-h1= title 
+      form(action="/add" method="POST")
+        label(for="title",class="label-form") Título de la Tarea
+        input(type="text", id="title", name="title", required, class="input-form")
+        label(for="descripcion", class="label-form") Descripcion
+        input(type="text", id="descripcion", name="descripcion", required, class="input-form")
+        label(for="imagen", class="label-form") Coloque la url
+        input(type="text", id="imagen", name="imagen", required, class="input-form")
+        button.add-button-form(type="submit") Agregar
+      a.back-button-form(href="/") ↩️🏠 Volver

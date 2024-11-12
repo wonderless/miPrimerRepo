@@ -1,0 +1,14 @@
+extends layout
+block content
+  div.form-body 
+    main.container-form 
+      h1.form-h1= title
+      form(action=`/edit/${task.id}`, method='POST')
+        label(for='title',class="label-form") Nuevo Título de la Tarea
+        input(type='text', name='title', id='title', value=task.title, required, class="input-form")
+        label(for="descripcion",class="label-form") Descripcion
+        input(type="text", id="descripcion", name="descripcion",value=task.descripcion, required, class="input-form")
+        label(for="imagen",class="label-form") Coloque la url
+        input(type="text", id="imagen", name="imagen",value=task.imagen, required, class="input-form")
+        button(type='submit', class="edit-button-form") Editar
+      a(href='/', class='back-button-form ') ↩️🏠 Volver

@@ -1,0 +1,177 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Responsive Dashboard
+    link(href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet")
+    link(rel="stylesheet" href="/css/style.css")
+  
+  body
+    .container
+      aside
+        .top
+          .logo
+            img(src="img/imageLogo.png")
+            h2.text-muted Group
+              span.danger Six
+          .close#close-btn
+            span.material-symbols-outlined close
+
+        .sidebar
+          a.active(href="#")
+            span.material-symbols-outlined grid_view
+            h3 Dashboard
+          a(href="#")
+            span.material-symbols-outlined person
+            h3 Customers
+          a(href="#")
+            span.material-symbols-outlined orders
+            h3 Orders
+          a(href="#")
+            span.material-symbols-outlined analytics
+            h3 Analytics
+          a(href="#")
+            span.material-symbols-outlined mail
+            h3 Messages
+            span.messages-count 50
+          a(href="#")
+            span.material-symbols-outlined inventory_2
+            h3 Products
+          a(href="#")
+            span.material-symbols-outlined summarize
+            h3 Reports
+          a(href="#")
+            span.material-symbols-outlined settings
+            h3 Settings
+          a(href="#")
+            span.material-symbols-outlined add_shopping_cart
+            h3 Add Product
+          a(href="#")
+            span.material-symbols-outlined logout
+            h3 Logout
+
+      //- MAIN SECTION
+      main
+        h1 Servicios de hosting
+        .date
+          input(type="date")
+
+        .insights
+          //- SALES SECTION
+          each task in tasks
+            div.sales
+              span.material-symbols-outlined(style="background-color: transparent; padding: 10px; border: 2px solid black;")
+
+                img(src=`${task.imagen}`, alt="Imagen", width="100", height="50")
+              div.middle
+                div.left
+                  h3 
+                    a(href=`/edit/${task.id}`) #{task.title}
+                  p.parrafo #{task.descripcion}
+              a.delete-button(href=`/delete/${task.id}`) Eliminar
+        a.add-button(href="/add") Agregar Servicio
+        .recent-orders
+          h2 Recent Orders
+          table
+            thead
+              tr
+                th Product Name
+                th Product Number
+                th Payment
+                th Status
+                th
+            tbody
+              tr
+                td DJI Mini 2 Drone
+                td 13458
+                td Paid
+                td.success Delivered
+              tr
+                td Holy Stone HS720 Drone
+                td 13458
+                td Declined
+                td.primary Refunded
+              tr
+                td Hubsan Zino Mini Pro
+                td 58734
+                td Due
+                td.warning Pending
+          a(href="#") Show All
+
+      //- RIGHT SECTION
+      .right
+        .top
+          button#menu-btn
+            span.material-symbols-outlined menu
+          .profile
+            .info
+              p Hey, 
+                b Frac0nesy
+              small.text-muted Admin
+            .profile-photo
+              img(src="img/Img1P.JPG")
+
+        .recent-updates
+          h2 Tecnologias usadas
+          .updates
+            .update
+              .profile-photo
+                img(src="img/profile-3.jpg")
+              .message
+                p 
+                  b Node js
+                  |  
+                small.text-muted 20 Minutes Ago
+            .update
+              .profile-photo
+                img(src="img/profile-4.jpg")
+              .message
+                p 
+                  b Angular
+                  |  received his order
+                small.text-muted 10 Minutes Ago
+            .update
+              .profile-photo
+                img(src="img/ImgP2.png")
+              .message
+                p 
+                  b mysql
+                  |  received his order
+                small.text-muted 30 Minutes Ago
+
+        .sales-analytics
+          h2 Sales Analytics
+          .item.online
+            .icon
+              span.material-symbols-outlined shopping_cart
+            .right
+              .info
+                h3 ONLINE ORDERS
+                small.text-muted Last 24 hours
+              h5.danger -17%
+              h3 1100
+          .item.offline
+            .icon
+              span.material-symbols-outlined local_mall
+            .right
+              .info
+                h3 OFFLINE ORDERS
+                small.text-muted Last 24 hours
+              h5.success +39%
+              h3 3849
+          .item.customers
+            .icon
+              span.material-symbols-outlined person
+            .right
+              .info
+                h3 NEW CUSTOMERS
+                small.text-muted Last 24 hours
+              h5.success +25%
+              h3 849
+          .item.add-product
+            div
+              span.material-symbols-outlined add
+              h3 Add Product
+
+    script(src="script.js")
